@@ -1,4 +1,4 @@
-<header class="hero-bg">
+<div class="hero-bg">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12 text-center text-white">
@@ -8,16 +8,16 @@
             </div>
         </div>
     </div>
-</header>
+</div>
 
 <!-- Modal Signup -->
 <div class="modal fade" id="modal_signup" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body mx-4">
-                <form action="action.php" method="post" id="signup_form">
+                <form action="" method="post" id="signup_form">
                     <div class="mb-3 text-center">
-                        <h4 class="modal-title w-100 font-weight-bold">Create An Account.</h4>
+                        <h4 class="modal-title w-100 font-weight-bold">Create An Account</h4>
                     </div>
                     <div class="mb-3">
                         <div class="input-group mb-2">
@@ -73,61 +73,65 @@
     </div>
 </div>
 
-<!-- Modal Vendor -->
+<!-- Modal Signup -->
 <div class="modal fade" id="modal_vendor" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="action.php" method="post" id="vendor_form">
-                <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Become a vendor!</h4>
-                </div>
-                <div class="modal-body mx-3">
-                    <div class="row">
-                        <div class="col">
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fas fa-user"></i></div>
-                                </div>
-                                <input type="text" class="form-control" id="shop_name" name="shop_name" placeholder="Enter shop name">
+            <div class="modal-body mx-4">
+                <form action="" method="post" id="vendor_form">
+                    <div class="mb-3 text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">Apply Shop Vendor</h4>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="uil uil-user-circle"></i></div>
                             </div>
+                            <input type="text" class="form-control" name="fullname" placeholder="Enter the vendor name">
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fas fa-user"></i></div>
-                                </div>
-                                <input type="text" class="form-control" id="shop_username" name="shop_username" placeholder="Create a shop username">
+                    <div class="mb-3">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="uil uil-phone"></i></div>
                             </div>
+                            <input type="text" class="form-control" name="phone" placeholder="Enter vendor contact number">
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fas fa-lock"></i></div>
-                                </div>
-                                <input type="password" class="form-control" id="shop_password" name="shop_password" placeholder="Choose a password">
+                    <div class="mb-3">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="uil uil-user"></i></div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fas fa-lock"></i></div>
-                                </div>
-                                <input type="password" class="form-control" id="shop_confirm_password" name="shop_confirm_password" placeholder="Confirm password">
-                            </div>
+                            <input type="text" class="form-control" id="shop_usr" name="username" placeholder="Create a vendor username">
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-center">
-                    <div class="col text-center">
-                        <input type="hidden" name="signup" value="vendor">
-                        <input type="submit" class="btn btn-default" value="Register">
+                    <div class="mb-3">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="uil uil-lock"></i></div>
+                            </div>
+                            <input type="password" class="form-control" id="shop_pwd" name="password" placeholder="Choose a password">
+                        </div>
                     </div>
-                </div>
-            </form>
+                    <div class="mb-3">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="uil uil-lock"></i></div>
+                            </div>
+                            <input type="password" class="form-control" id="shop_c_pwd" name="confirm_password" placeholder="Confirm the password">
+                        </div>
+                    </div>
+                    <div class="my-3 text-center">
+                        <button type="submit" class="btn btn-success" name="submit"><i class="uil uil-sign-in-alt"></i> Apply Now</button>
+                    </div>
+                    <div class="my-3 text-center">
+                        <small class="text-muted">
+                           Already have an account? <a href="#" class="text-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modal_login">Login</a>.
+                        </small>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
