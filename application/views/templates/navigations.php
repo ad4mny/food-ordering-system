@@ -95,11 +95,9 @@
                 <i class="fas fa-user fa-fw fa-lg"></i>
             </a>
         <?php } else { ?>
-            <div class="p-2 flex-fill">
                 <button class="btn" data-bs-toggle="modal" data-bs-target="#modal_login">
                     <i class="fas fa-user fa-fw fa-lg"></i>
                 </button>
-            </div>
         <?php } ?>
     </div>
 </div>
