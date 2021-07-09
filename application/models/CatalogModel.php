@@ -1,8 +1,8 @@
 <?php
 
-class CatalogController extends CI_Model
+class CatalogModel extends CI_Model
 {
-    public function getAllMenu()
+    public function getAllMenuModel()
     {
         $this->db->select('*');
         $this->db->from('catalog_data');
