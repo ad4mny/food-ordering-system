@@ -109,7 +109,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body mx-4">
-                <form action="" method="post" id="login_form">
+                <form action="<?php echo base_url(); ?>login" method="post">
                     <div class="mb-3">
                         <h4 class="modal-title w-100 font-weight-bold text-center">Hello.</h4>
                     </div>
@@ -126,7 +126,7 @@
                         </div>
                     </div>
                     <div class="my-3 text-center">
-                        <button type="submit" class="btn btn-success">
+                        <button type="submit" class="btn btn-success" name="submit">
                             <i class="fas fa-sign-in-alt"></i> Login
                         </button>
                     </div>

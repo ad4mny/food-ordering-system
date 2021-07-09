@@ -32,10 +32,22 @@
                             <small> <?php echo sizeof($_SESSION['order']); ?></small>
                         </span>
                     </a>
-                <?php }  ?>
-                <button class="btn" data-bs-toggle="modal" data-bs-target="#modal_login">
-                    <i class="fas fa-sign-in-alt"></i>
-                </button>
+                <?php }
+                if (isset($_SESSION['uid'])) {  ?>
+                    <div class="dropdown">
+                        <a class="btn <?php echo base_url(); ?>profile" class="btn position-relative <?php if ($this->uri->segment(1) == 'checkout') echo 'text-success' ?>" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-default" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="<?php echo base_url(); ?>profile">Profile</a>
+                            <a class="dropdown-item" href="<?php echo base_url(); ?>logout">Log Out</a>
+                        </div>
+                    </div>
+                <?php } else { ?>
+                    <button class="btn" data-bs-toggle="modal" data-bs-target="#modal_login">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -78,12 +90,33 @@
         <?php }  ?>
     </div>
     <div class="p-2 flex-fill">
-        <button class="btn" data-bs-toggle="modal" data-bs-target="#modal_login">
-            <i class="fas fa-user fa-fw fa-lg"></i>
-        </button>
+        <?php if (isset($_SESSION['uid'])) { ?>
+            <a href="<?php echo base_url(); ?>profile" class="btn position-relative <?php if ($this->uri->segment(1) == 'profile') echo 'text-success' ?>">
+                <i class="fas fa-user fa-fw fa-lg"></i>
+            </a>
+        <?php } else { ?>
+            <div class="p-2 flex-fill">
+                <button class="btn" data-bs-toggle="modal" data-bs-target="#modal_login">
+                    <i class="fas fa-user fa-fw fa-lg"></i>
+                </button>
+            </div>
+        <?php } ?>
     </div>
 </div>
-
 <!-- Alerts -->
-<div id="alert" style="position:absolute;z-index:1;" class="m-5">
+<div id="alert" class="w-75 position-absolute top-50 start-50 translate-middle" style="z-index: 1;">
+    <?php
+    if ($this->session->tempdata('notice') != NULL) {
+        echo '<div class="alert alert-success shadow alert-dismissible fade show" role="alert">';
+        echo '<i class="fas fa-info-circle fa-fw"></i> ' . $this->session->tempdata('notice');
+        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+        echo '</div>';
+    }
+    if ($this->session->tempdata('error') != NULL) {
+        echo '<div class="alert alert-danger shadow alert-dismissible fade show" role="alert">';
+        echo '<i class="fas fa-exclamation-circle fa-fw"></i> ' . $this->session->tempdata('error');
+        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+        echo '</div>';
+    }
+    ?>
 </div>

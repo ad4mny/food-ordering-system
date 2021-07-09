@@ -41,13 +41,22 @@ class CheckoutController extends CI_Controller
     public function removeBasketItemQuantity($catalog_id)
     {
         if (isset($_SESSION['order'][$catalog_id])) {
-            if ($_SESSION['order'][$catalog_id] !== 0) {
+            if ($_SESSION['order'][$catalog_id] > 1) {
                 $_SESSION['order'][$catalog_id] -= 1;
             } else {
                 unset($_SESSION['order'][$catalog_id]);
+
+                if (empty($_SESSION['order'])) {
+                    unset($_SESSION['order']);
+                }
             }
         }
 
+        redirect(base_url() . 'checkout');
+    }
+
+    public function checkoutBasket()
+    {
         redirect(base_url() . 'checkout');
     }
 }
