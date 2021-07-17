@@ -3,20 +3,20 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body mx-4">
-                <form action="" method="post" id="signup_form">
+                <form action="<?php echo base_url(); ?>signup" method="post">
                     <div class="mb-3 text-center">
                         <h4 class="modal-title w-100 font-weight-bold">Create An Account</h4>
                     </div>
                     <div class="mb-3">
                         <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fas fa-user-circle fa-fw"></i></span>
-                            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter your full name">
+                            <input type="text" class="form-control" id="fullname" name="name" placeholder="Enter your full name">
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fas fa-phone fa-fw"></i></span>
-                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter your contact number">
+                            <input type="text" class="form-control" id="phone" name="contact" placeholder="Enter your contact number">
                         </div>
                     </div>
                     <div class="mb-3">
@@ -38,6 +38,7 @@
                         </div>
                     </div>
                     <div class="my-3 text-center">
+                        <input type="hidden" name="role" value="0">
                         <button type="submit" class="btn btn-success" name="submit"><i class="fas fa-sign-in-alt"></i> Sign Up</button>
                     </div>
                     <div class="my-3 text-center">
@@ -56,41 +57,42 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body mx-4">
-                <form action="" method="post" id="vendor_form">
+                <form action="<?php echo base_url(); ?>signup" method="post">
                     <div class="mb-3 text-center">
                         <h4 class="modal-title w-100 font-weight-bold">Apply Shop Vendor</h4>
                     </div>
                     <div class="mb-3">
                         <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fas fa-user-circle fa-fw"></i></span>
-                            <input type="text" class="form-control" name="fullname" placeholder="Enter the vendor name">
+                            <input type="text" class="form-control" name="name" placeholder="Enter the vendor name">
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fas fa-phone fa-fw"></i></span>
-                            <input type="text" class="form-control" name="phone" placeholder="Enter vendor contact number">
+                            <input type="text" class="form-control" name="contact" placeholder="Enter vendor contact number">
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fas fa-user fa-fw"></i></span>
-                            <input type="text" class="form-control" id="shop_usr" name="username" placeholder="Create a vendor username">
+                            <input type="text" class="form-control" name="username" placeholder="Create a vendor username">
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fas fa-lock fa-fw"></i></span>
-                            <input type="password" class="form-control" id="shop_pwd" name="password" placeholder="Choose a password">
+                            <input type="password" class="form-control" name="password" placeholder="Choose a password">
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fas fa-lock fa-fw"></i></span>
-                            <input type="password" class="form-control" id="shop_c_pwd" name="confirm_password" placeholder="Confirm the password">
+                            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm the password">
                         </div>
                     </div>
                     <div class="my-3 text-center">
+                        <input type="hidden" name="role" value="1">
                         <button type="submit" class="btn btn-success" name="submit"><i class="fas fa-sign-in-alt"></i> Apply Now</button>
                     </div>
                     <div class="my-3 text-center">

@@ -7,6 +7,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'LoginController/loginAuth';
 $route['logout'] = 'LoginController/logout';
+$route['signup'] = 'LoginController/createUserAccount';
 $route['catalog'] = 'CatalogController/index';
 $route['checkout'] = 'CheckoutController/index';
 $route['checkout/add/(:any)'] = 'CheckoutController/addBasketItemQuantity/$1';
