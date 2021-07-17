@@ -19,4 +19,16 @@ class ProfileModel extends CI_Model
         $this->db->where('od_status', 'Completed');
         return $this->db->get()->result_array();
     }
+    
+    public function setProfileUpdateModel($username, $name, $contact)
+    {
+        $data = array(
+            'ud_username' => $username,
+            'ud_full_name' => $name,
+            'ud_contact' => $contact
+        );
+  
+        $this->db->where('ud_id', $_SESSION['uid']);
+        return $this->db->update('user_data', $data);
+    }
 }

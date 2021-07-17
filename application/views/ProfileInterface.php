@@ -1,7 +1,7 @@
 <div class="container my-5">
-    <div class="row m-4 border-md-bottom pb-2 text-center text-md-start">
+    <div class="row border-md-bottom pb-2 text-center text-md-start">
         <div class="col-12 col-md-9">
-            <h2 class="display-4"><i class="fas fa-user fa-fw"></i> Profile</h2>
+            <h1 class="fw-light"><i class="fas fa-user fa-fw"></i> Profile</h1>
         </div>
     </div>
     <div class="row pb-2">
@@ -12,15 +12,15 @@
                 <div class="m-2 p-4 bg-white rounded-3 shadow-sm">
                     <h4 class="pb-3 text-capitalize">Hi, <?php echo $profiles['ud_username']; ?>.</h4>
                     <div class="form-group mb-2">
-                        <small class="text-muted"><i class="fas fa-user fa-fw fa-sm"></i> Name</small>
+                        <small>Name</small>
                         <p class="text-capitalize"> <?php echo $profiles['ud_full_name']; ?></p>
                     </div>
                     <div class="form-group mb-2">
-                        <small class="text-muted"><i class="fas fa-phone fa-fw fa-sm"></i> Contact</small>
+                        <small>Contact</small>
                         <p class="text-capitalize"> <?php echo $profiles['ud_contact']; ?></p>
                     </div>
                     <div class="form-group ">
-                        <a href="<?php echo base_url(); ?>profile/update"><small>Update profile</small></a>
+                        <a href="<?php echo base_url(); ?>profile/update" class="btn btn-primary">Update Profile</a>
                     </div>
                 </div>
             </div>

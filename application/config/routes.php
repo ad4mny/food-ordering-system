@@ -14,3 +14,4 @@ $route['checkout/remove/(:any)'] = 'CheckoutController/removeBasketItemQuantity/
 $route['checkout/order'] = 'CheckoutController/checkoutBasket';
 $route['profile'] = 'ProfileController/index';
 $route['profile/update'] = 'ProfileController/index/$1';
+$route['profile/submit'] = 'ProfileController/setProfileUpdate';

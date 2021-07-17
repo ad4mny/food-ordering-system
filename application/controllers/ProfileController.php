@@ -8,13 +8,19 @@ class ProfileController extends CI_Controller
         $this->load->model('ProfileModel');
     }
 
-    public function index()
+    public function index($page = 'update')
     {
         $data['profiles'] = $this->getProfile();
         $data['histories'] = $this->getOrderHistory();
         $this->load->view('templates/headers.php');
         $this->load->view('templates/navigations.php');
-        $this->load->view('ProfileInterface.php', $data);
+
+        if ($page === 'update') {
+            $this->load->view('ProfileInterface.php', $data);
+        } else {
+            $this->load->view('UpdateProfileInterface.php', $data);
+        }
+
         $this->load->view('templates/footers.php');
     }
 
@@ -28,4 +34,20 @@ class ProfileController extends CI_Controller
         return $this->ProfileModel->getOrderHistoryModel();
     }
 
+    public function setProfileUpdate()
+    {
+        $username = $this->input->post('username');
+        $name = $this->input->post('name');
+        $contact = $this->input->post('contact');
+
+        if ($this->ProfileModel->setProfileUpdateModel($username, $name, $contact) === true) {
+
+            $this->session->set_tempdata('notice', 'Your profile updated successfully.', 1);
+            redirect(base_url() . 'profile');
+        } else {
+
+            $this->session->set_tempdata('error', 'Failed to update your profile.', 1);
+            redirect(base_url() . 'profile');
+        }
+    }
 }
