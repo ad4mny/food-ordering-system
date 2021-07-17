@@ -16,9 +16,6 @@
                 <li class="nav-item">
                     <a class="nav-link <?php if ($this->uri->segment(1) == 'table') echo 'active border-bottom border-success'; ?>" href="<?php echo base_url(); ?>table">Book A Table</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link <?php if ($this->uri->segment(1) == 'about') echo 'active border-bottom border-success'; ?>" href="<?php echo base_url(); ?>about">About</a>
-                </li>
             </ul>
             <div class="d-flex">
                 <?php if (!isset($_SESSION['order'])) { ?>

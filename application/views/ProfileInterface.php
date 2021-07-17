@@ -4,7 +4,7 @@
             <h1 class="fw-light"><i class="fas fa-user fa-fw"></i> Profile</h1>
         </div>
     </div>
-    <div class="row pb-2">
+    <div class="row pb-2  text-dark">
         <?php
         if (isset($profiles) && $profiles !== false) {
         ?>

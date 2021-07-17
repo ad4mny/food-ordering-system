@@ -33,7 +33,7 @@ class LoginController extends CI_Controller
                     break;
             }
         } else {
-            $this->session->set_tempdata('error', 'Wrong username or password entered.', 3);
+            $this->session->set_tempdata('error', 'Wrong username or password entered.', 1);
             redirect(base_url());
         }
     }
@@ -99,7 +99,7 @@ class LoginController extends CI_Controller
             'role'
         );
 
-        $this->session->set_tempdata('notice', 'You have logout successfully.', 3);
+        $this->session->set_tempdata('notice', 'You have logout successfully.', 1);
         $this->session->unset_userdata($session_data);
         
         redirect(base_url());

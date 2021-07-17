@@ -15,3 +15,5 @@ $route['checkout/order'] = 'CheckoutController/checkoutBasket';
 $route['profile'] = 'ProfileController/index';
 $route['profile/update'] = 'ProfileController/index/$1';
 $route['profile/submit'] = 'ProfileController/setProfileUpdate';
+$route['table'] = 'BookTableController/index';
+$route['table/book'] = 'BookTableController/setTableBooking';

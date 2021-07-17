@@ -30,7 +30,11 @@ class CheckoutController extends CI_Controller
 
     public function getAllActiveOrders()
     {
-        return $this->CheckoutModel->getAllActiveOrdersModel();
+        if (!isset($_SESSION['uid'])) {
+            return false;
+        } else {
+            return $this->CheckoutModel->getAllActiveOrdersModel();
+        }
     }
 
     public function addBasketItemQuantity($catalog_id)

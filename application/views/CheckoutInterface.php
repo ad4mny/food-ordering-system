@@ -159,7 +159,7 @@
                 <h1 class="fw-light"><i class="fas fa-shopping-basket fa-fw"></i> Checkout Order</h1>
             </div>
         </div>
-        <div class="row mx-2 py-2 mb-2 border-bottom bg-white rounded-3 shadow-sm">
+        <div class="row mx-2 py-2 mb-2 border-bottom bg-white rounded-3 shadow-sm text-dark">
             <div class="col">
                 <p class="mb-0">Your have nothing yet in your order basket :(</p>
                 <small> Order some meal now.</small>
