@@ -95,9 +95,9 @@
                 <i class="fas fa-user fa-fw fa-lg"></i>
             </a>
         <?php } else { ?>
-                <button class="btn" data-bs-toggle="modal" data-bs-target="#modal_login">
-                    <i class="fas fa-user fa-fw fa-lg"></i>
-                </button>
+            <button class="btn" data-bs-toggle="modal" data-bs-target="#modal_login">
+                <i class="fas fa-user fa-fw fa-lg"></i>
+            </button>
         <?php } ?>
     </div>
 </div>

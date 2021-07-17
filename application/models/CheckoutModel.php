@@ -17,6 +17,17 @@ class CheckoutModel extends CI_Model
         return $this->db->get()->result_array();
     }
 
+    public function getAllActiveOrdersModel()
+    {
+        $this->db->select('*');
+        $this->db->from('order_data');
+        $this->db->join('catalog_data', 'cd_id = od_cd_id');
+        $this->db->where('od_cd_id', $_SESSION['uid']);
+        $this->db->where('od_status', 'Preparing');
+
+        return $this->db->get()->result_array();
+    }
+
     public function addNewOrderModel()
     {
 

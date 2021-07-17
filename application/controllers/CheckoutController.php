@@ -11,6 +11,7 @@ class CheckoutController extends CI_Controller
     public function index()
     {
         $data['baskets'] = $this->getAllBasketItemDetails();
+        $data['orders'] = $this->getAllActiveOrders();
         $this->load->view('templates/headers.php');
         $this->load->view('templates/navigations.php');
         $this->load->view('CheckoutInterface.php', $data);
@@ -25,6 +26,11 @@ class CheckoutController extends CI_Controller
         } else {
             return $this->CheckoutModel->getAllBasketItemDetailsModel();
         }
+    }
+
+    public function getAllActiveOrders()
+    {
+        return $this->CheckoutModel->getAllActiveOrdersModel();
     }
 
     public function addBasketItemQuantity($catalog_id)
