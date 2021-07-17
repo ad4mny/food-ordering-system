@@ -35,7 +35,7 @@
                 <?php }
                 if (isset($_SESSION['uid'])) {  ?>
                     <div class="dropdown">
-                        <a class="btn <?php echo base_url(); ?>profile" class="btn position-relative <?php if ($this->uri->segment(1) == 'checkout') echo 'text-success' ?>" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a href="#" class="btn position-relative <?php if ($this->uri->segment(1) == 'profile') echo 'text-success' ?>" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-user"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-default" aria-labelledby="navbarDropdown">

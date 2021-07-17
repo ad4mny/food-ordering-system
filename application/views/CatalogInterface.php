@@ -1,4 +1,4 @@
-<div class="container my-5">
+<div class="container my-5 ">
     <div class="row border-md-bottom pb-2 text-center text-md-start">
         <div class="col-12 col-md-9">
             <h1 class="fw-light"><i class="fas fa-utensils fa-fw"></i> Browse Menu</h1>
@@ -12,10 +12,10 @@
     </div>
     <div class="row">
         <div class="col">
-            <div class="row row-cols-1 row-cols-md-4 g-4" id="display_area">
+            <div class="row row-cols-1 row-cols-md-4 g-4 text-dark" id="display_area">
                 <?php if (isset($menus) && is_array($menus)) {
                     foreach ($menus as $row) { ?>
-                        <div class="col d-flex ">
+                        <div class="col d-flex">
 
                             <div class="card h-100">
                                 <?php
@@ -26,17 +26,21 @@
                                 }
                                 ?>
                                 <div class="card-body">
-                                    <h3 class="card-title text-capitalize mb-0">
-                                        <?php echo $row['cd_name']; ?>
-                                    </h3>
-                                    <small class="card-text text-capitalize text-muted">
-                                        <?php echo $row['ud_full_name'] . "'s Shop"; ?>
-                                    </small>
-                                    <p class="card-text">
-                                        <?php echo $row['cd_desc']; ?>
-                                    </p>
-
-
+                                    <div class="card-text">
+                                        <h3 class="card-title text-capitalize mb-0">
+                                            <?php echo $row['cd_name']; ?>
+                                        </h3>
+                                    </div>
+                                    <div class="card-text">
+                                        <small class="card-text text-capitalize text-muted">
+                                            <?php echo $row['ud_full_name'] . "'s Shop"; ?>
+                                        </small>
+                                    </div>
+                                    <div class="card-text">
+                                        <p class="card-text">
+                                            <?php echo $row['cd_desc']; ?>
+                                        </p>
+                                    </div>
                                 </div>
                                 <div class="card-footer bg-white border-0 text-center my-2">
 
