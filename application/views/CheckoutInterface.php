@@ -50,7 +50,7 @@
                     </ul>
                 </div>
                 <div class="col col-md-2 text-end d-md-flex align-items-center justify-content-center">
-                    <p class="fs-5 mb-0">RM
+                    <p class="mb-0">RM
                         <?php
                         $subtotal = number_format((float)($row['cd_price'] * $_SESSION['order'][$row['cd_id']]), 2, '.', '');
                         $total_price += $subtotal;
@@ -72,7 +72,7 @@
     <?php } ?>
     <?php if (isset($baskets) && is_array($baskets) && $baskets !== false) { ?>
         <div class="row mx-2 ">
-            <div class="col-8 col-md-2 offset-md-8">
+            <div class="col-8 col-md-3 offset-md-7">
                 <p class="mb-0">Subtotal</p>
                 <p class="mb-0">Service Charge (10%)</p>
             </div>
@@ -85,8 +85,8 @@
                 </p>
             </div>
         </div>
-        <div class="row pb-3 mx-2 ">
-            <div class="col offset-md-8">
+        <div class="row pb-3 mx-2">
+            <div class="col-8 col-md-3 offset-md-7">
                 <p class="mb-0">Total</p>
             </div>
             <div class="col text-end text-md-center">
@@ -95,9 +95,9 @@
                 </h4>
             </div>
         </div>
-        <div class="row pb-5">
-            <div class="col offset-md-8 text-center text-md-end">
-                <a href="<?php echo base_url(); ?>" class="btn btn-success">
+        <div class="row pb-5 mx-2">
+            <div class="col offset-md-10 text-center ">
+                <a href="<?php echo base_url(); ?>checkout/order" class="btn btn-success">
                     <i class="fas fa-shopping-basket fa-fw fa-sm"></i>
                     Checkout
                 </a>

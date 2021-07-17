@@ -102,7 +102,7 @@
     </div>
 </div>
 <!-- Alerts -->
-<div id="alert" class="w-75 position-absolute top-50 start-50 translate-middle" style="z-index: 1;">
+<div id="alert" class="w-75 position-absolute start-50 translate-middle mt-5" style="z-index: 1; top: 10%;">
     <?php
     if ($this->session->tempdata('notice') != NULL) {
         echo '<div class="alert alert-success shadow alert-dismissible fade show" role="alert">';

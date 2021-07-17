@@ -11,5 +11,6 @@ $route['catalog'] = 'CatalogController/index';
 $route['checkout'] = 'CheckoutController/index';
 $route['checkout/add/(:any)'] = 'CheckoutController/addBasketItemQuantity/$1';
 $route['checkout/remove/(:any)'] = 'CheckoutController/removeBasketItemQuantity/$1';
+$route['checkout/order'] = 'CheckoutController/checkoutBasket';
 $route['profile'] = 'ProfileController/index';
 $route['profile/update'] = 'ProfileController/index/$1';

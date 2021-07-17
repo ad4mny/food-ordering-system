@@ -57,6 +57,24 @@ class CheckoutController extends CI_Controller
 
     public function checkoutBasket()
     {
-        redirect(base_url() . 'checkout');
+        if (isset($_SESSION['uid'])) {
+
+            $return = $this->CheckoutModel->addNewOrderModel();
+
+            unset($_SESSION['order']);
+
+            if ($return === 0) {
+                $this->session->set_tempdata('error', 'Please wait while your active order completed before adding a new one.', 1);
+            } else if ($return > 0) {
+                $this->session->set_tempdata('notice', 'Order has been place! Please await while we preparing your order.', 1);
+            } else {
+                $this->session->set_tempdata('error', 'Error creating your order, please try again.', 1);
+            }
+
+            redirect(base_url() . 'checkout');
+        } else {
+            $this->session->set_tempdata('error', 'Please login to place an order!', 1);
+            redirect(base_url() . 'checkout');
+        }
     }
 }

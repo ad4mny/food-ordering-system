@@ -16,4 +16,34 @@ class CheckoutModel extends CI_Model
 
         return $this->db->get()->result_array();
     }
+
+    public function addNewOrderModel()
+    {
+
+        $this->db->select('*');
+        $this->db->from('order_data');
+        $this->db->where('od_ud_id', $_SESSION['uid']);
+        $this->db->where('od_status', 'Preparing');
+
+        if ($this->db->get()->num_rows() > 0) {
+            return 0;
+        } else {
+            $data = [];
+
+            foreach ($_SESSION['order'] as $key => $value) {
+
+                $order_array = array(
+                    'od_ud_id' => $_SESSION['uid'],
+                    'od_cd_id' => $key,
+                    'od_quantity' => $value,
+                    'od_status' => 'Preparing',
+                    'od_log' => date('H:i:s Y-m-d')
+                );
+
+                array_push($data, $order_array);
+            }
+
+            return $this->db->insert_batch('order_data', $data);
+        }
+    }
 }
