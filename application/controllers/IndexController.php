@@ -11,7 +11,7 @@ class IndexController extends CI_Controller
     {
         $this->load->view('templates/headers.php');
         $this->load->view('templates/navigations.php');
-        $this->load->view('HomeInterface.php');
+        $this->load->view('IndexInterface.php');
         $this->load->view('templates/modals.php');
         $this->load->view('templates/footers.php');
     }

@@ -1,7 +1,7 @@
 <div class="container my-5">
     <div class="row border-md-bottom pb-2 text-center text-md-start">
         <div class="col-12 col-md-9">
-            <h1 class="fw-light"><i class="fas fa-user fa-fw"></i> Profile</h1>
+            <h1 class="fw-light"><i class="fas fa-user fa-fw"></i> Update Profile Information</h1>
         </div>
     </div>
     <div class="row pb-2  text-dark">
@@ -9,8 +9,8 @@
         if (isset($profiles) && $profiles !== false) {
         ?>
             <div class="col-4">
-                <form method="post" action="<?php echo base_url(); ?>/profile/submit">
-                    <div class="m-2 p-4 bg-white rounded-3 shadow-sm">
+                <form method="post" action="<?php echo base_url(); ?>/profile/update/submit">
+                    <div class="m-1 p-4 bg-white rounded-3 shadow-sm">
                         <div class="form-group mb-3">
                             <p class="mb-0 text-capitalize">Username</p>
                             <input class="form-control" name="username" value="<?php echo $profiles['ud_username']; ?>" placeholder="Change your username">

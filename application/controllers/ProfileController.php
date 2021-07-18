@@ -8,7 +8,7 @@ class ProfileController extends CI_Controller
         $this->load->model('ProfileModel');
     }
 
-    public function index($page = 'update')
+    public function index($page = 'profile')
     {
         $data['profiles'] = $this->getProfile();
         $data['histories'] = $this->getOrderHistory();
@@ -16,9 +16,9 @@ class ProfileController extends CI_Controller
         $this->load->view('templates/navigations.php');
 
         if ($page === 'update') {
-            $this->load->view('ProfileInterface.php', $data);
-        } else {
             $this->load->view('UpdateProfileInterface.php', $data);
+        } else {
+            $this->load->view('ProfileInterface.php', $data);
         }
 
         $this->load->view('templates/footers.php');

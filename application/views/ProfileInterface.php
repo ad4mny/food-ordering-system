@@ -1,7 +1,7 @@
 <div class="container my-5">
-    <div class="row border-md-bottom pb-2 text-center text-md-start">
+<div class="row border-md-bottom pb-2 text-center text-md-start">
         <div class="col-12 col-md-9">
-            <h1 class="fw-light"><i class="fas fa-user fa-fw"></i> Profile</h1>
+            <h1 class="fw-light"><i class="fas fa-user fa-fw"></i> Profile Information</h1>
         </div>
     </div>
     <div class="row pb-2  text-dark">
@@ -9,8 +9,8 @@
         if (isset($profiles) && $profiles !== false) {
         ?>
             <div class="col-12 col-md-4">
-                <div class="m-2 p-4 bg-white rounded-3 shadow-sm">
-                    <h4 class="pb-3 text-capitalize">Hi, <?php echo $profiles['ud_username']; ?>.</h4>
+                <div class="m-1 p-4 bg-white rounded-3 shadow-sm">
+                    <h4 class="pb-2 text-capitalize">Hi, <?php echo $profiles['ud_username']; ?>.</h4>
                     <div class="form-group mb-2">
                         <small>Name</small>
                         <p class="text-capitalize"> <?php echo $profiles['ud_full_name']; ?></p>
@@ -25,13 +25,13 @@
                 </div>
             </div>
             <div class="col-12 col-md-8">
-                <div class="m-2 p-4 bg-white rounded-3 shadow-sm">
+                <div class="m-1 p-4 bg-white rounded-3 shadow-sm">
                     <h4 class="pb-2">Order History</h4>
                     <?php
                     if (isset($histories) && $histories !== false) {
                         foreach ($histories as $row) {
                     ?>
-                            <div class="row py-1 border-top">
+                            <div class="row pb-2 border-bottom mb-2">
                                 <div class="col-3 d-none d-md-flex align-items-center">
                                     <?php
                                     if ($row['cd_img'] !== null) {
