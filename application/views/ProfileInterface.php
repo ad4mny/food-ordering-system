@@ -35,7 +35,7 @@
                                 <div class="col-3 d-none d-md-flex align-items-center">
                                     <?php
                                     if ($row['cd_img'] !== null) {
-                                        echo '<img src="' . base_url() . 'assets/' . $row['cd_img'] . '" alt="No Image" class="img-fluid d-none d-md-block"/>';
+                                        echo '<img src="' . base_url() . 'assets/catalog/' . $row['cd_img'] . '" alt="No Image" class="img-fluid d-none d-md-block"/>';
                                     } else {
                                         echo '<img src="https://dummyimage.com/640x360/f0f0f0/aaa" alt="No Image" class="img-fluid d-none d-md-block"/>';
                                     }

@@ -106,7 +106,7 @@
                     <div class="">
                         <?php
                         if ($row['cd_img'] !== null) {
-                            echo '<img src="' . base_url() . 'assets/' . $row['cd_img'] . '" alt="No Image" class="img-fluid d-none d-md-block"/>';
+                            echo '<img src="' . base_url() . 'assets/catalog/' . $row['cd_img'] . '" alt="No Image" class="img-fluid d-none d-md-block"/>';
                         } else {
                             echo '<img src="http://placehold.it/100x100" alt="No Image" class="img-fluid d-none d-md-block"/>';
                         }

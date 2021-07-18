@@ -20,7 +20,7 @@
                             <div class="card h-100">
                                 <?php
                                 if ($row['cd_img'] != null) {
-                                    echo '<img class="card-img-top" src="img/menu/' . $row['cd_img'] . '" alt="No Image">';
+                                    echo '<img class="card-img-top" src="' . base_url() . 'assets/catalog/' . $row['cd_img'] . '" alt="No Image">';
                                 } else {
                                     echo '<img class="card-img-top" src="https://dummyimage.com/640x360/f0f0f0/aaa" alt="No Image">';
                                 }

@@ -17,8 +17,8 @@ class LoginController extends CI_Controller
         if ($return !== false) {
 
             $this->session->set_userdata('uid', $return['ud_id']);
-            $this->session->set_userdata('user', $return['ud_full_name']);
-            $this->session->set_userdata('name', $return['ud_username']);
+            $this->session->set_userdata('user', $return['ud_username']);
+            $this->session->set_userdata('name', $return['ud_full_name']);
             $this->session->set_userdata('role', $return['ud_role']);
 
             switch ($this->session->userdata('role')) {
@@ -26,7 +26,7 @@ class LoginController extends CI_Controller
                     redirect(base_url() . 'admin/dashboard');
                     break;
                 case 1:
-                    redirect(base_url() . 'vendor/dashboard');
+                    redirect(base_url() . 'vendor/orders');
                     break;
                 default:
                     redirect(base_url());
@@ -66,8 +66,8 @@ class LoginController extends CI_Controller
             if ($return !== false) {
 
                 $this->session->set_userdata('uid', $return['ud_id']);
-                $this->session->set_userdata('user', $return['ud_full_name']);
-                $this->session->set_userdata('name', $return['ud_username']);
+                $this->session->set_userdata('user', $return['ud_username']);
+                $this->session->set_userdata('name', $return['ud_full_name']);
                 $this->session->set_userdata('role', $return['ud_role']);
 
                 switch ($this->session->userdata('role')) {
