@@ -23,4 +23,19 @@ class BookTableController extends CI_Controller
         return $this->BookTableModel->getAllAvailableTableModel();
     }
 
+    public function setTableBooking($table_id)
+    {
+        if (!isset($_SESSION['uid'])) {
+            $this->session->set_tempdata('error', 'Failed to book your requested tables, please login first.', 1);
+            redirect(base_url() . 'table');
+        } else {
+            if ($this->BookTableModel->setTableBookingModel($table_id) === true) {
+                $this->session->set_tempdata('notice', 'Your table has been booked successfully.', 1);
+                redirect(base_url() . 'table');
+            } else {
+                $this->session->set_tempdata('error', 'Failed to book your requested tables.', 1);
+                redirect(base_url() . 'table');
+            }
+        }
+    }
 }
