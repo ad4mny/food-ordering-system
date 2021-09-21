@@ -4,16 +4,36 @@
             <h1 class="fw-light"><i class="fas fa-user fa-fw"></i> Choose A Table</h1>
         </div>
     </div>
-    <div class="row pb-2">
-        <?php
-        if (isset($tables) && $tables !== false) {
-        ?>
-            <div class="col m-2 p-4 bg-white rounded-3 shadow-smm-2 p-4 bg-white rounded-3 shadow-sm">
-                test
+    <div class="row">
+        <div class="col">
+            <div class="row row-cols-6 g-2 text-dark">
+                <?php
+                if (isset($tables) && is_array($tables) && $tables !== false) {
+                    foreach ($tables as $table) {
+                        if ($table['td_ud_id'] === NULL) {
+                ?>
+                            <div class="col">
+                                <a href="<?php echo base_url() . 'table/book/' . $table['td_id']; ?>" class="btn btn-outline-success card p-3 m-2">
+                                    <h4> <?php echo $table['td_name']; ?> </h4>
+                                    <h6> <?php echo $table['td_time'] . ':00 pm'; ?></h6>
+                                    <h6> Available </h6>
+                                </a>
+                            </div>
+                        <?php
+                        } else {
+                        ?>
+                            <div class="col d-grid">
+                                <button href="<?php echo base_url() . 'table/book/' . $table['td_id']; ?>" class="btn btn-danger bg-danger card p-3 m-2" disbled>
+                                    <h4> <?php echo $table['td_name']; ?> </h4>
+                                    <h6> <?php echo $table['td_time'] . ':00 pm'; ?></h6>
+                                    <h6> Unavailable </h6>
+                                </button>
+                            </div>
+                <?php
+                        }
+                    }
+                } ?>
             </div>
-        <?php
-        } else {
-            echo  '<div class="col">No table were available.</div>';
-        } ?>
+        </div>
     </div>
 </div>
