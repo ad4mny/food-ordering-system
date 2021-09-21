@@ -51,12 +51,10 @@ class LoginController extends CI_Controller
 
             $this->session->set_tempdata('error', 'Username unavailable, register again.', 1);
             redirect(base_url());
-
         } else if ($confirm_password !== $password) {
 
             $this->session->set_tempdata('error', 'Password mismatch, register again.', 1);
             redirect(base_url());
-
         } else {
 
             $password = md5($confirm_password);
@@ -106,5 +104,49 @@ class LoginController extends CI_Controller
         $this->session->unset_userdata($session_data);
 
         redirect(base_url());
+    }
+
+    // API Module
+    public function loginAuthAPI()
+    {
+        $username = $this->input->post('username');
+        $password = md5($this->input->post('password'));
+
+        $return = $this->LoginModel->loginAuthModel($username, $password);
+
+        if ($return !== false) {
+            echo json_encode($return);
+            exit;
+        } else {
+            echo json_encode(false);
+            exit;
+        }
+    }
+
+    public function createUserAccountAPI()
+    {
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $name = $this->input->post('name');
+        $contact = $this->input->post('contact');
+        $role = $this->input->post('role');
+
+        if ($this->checkUsername($username) !== NULL) {
+
+            echo json_encode('Username unavailable, register again.');
+            exit;
+
+        } else {
+
+            $return = $this->LoginModel->createUserAccountModel($username, md5($password), $name, $contact, $role);
+
+            if ($return !== false) {
+                echo json_encode($return);
+                exit;
+            } else {
+                echo json_encode(false);
+                exit;
+            }
+        }
     }
 }

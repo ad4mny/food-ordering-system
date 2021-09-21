@@ -87,4 +87,54 @@ class CheckoutController extends CI_Controller
             redirect(base_url() . 'checkout');
         }
     }
+
+    // API Module 
+    public function getAllBasketItemDetailsAPI()
+    {
+        $_SESSION['order'] = $this->input->post('orders');
+
+        if (!isset($_SESSION['order'])) {
+            echo json_encode(false);
+            exit;
+        } else {
+            echo json_encode($this->CheckoutModel->getAllBasketItemDetailsModel());
+            exit;
+        }
+    }
+
+    public function getAllActiveOrdersAPI()
+    {
+        $_SESSION['uid'] = $this->input->post('uid');
+
+        if (empty($_SESSION['uid'])) {
+            echo json_encode(false);
+            exit;
+        } else {
+            echo json_encode($this->CheckoutModel->getAllActiveOrdersModel());
+            exit;
+        }
+    }
+
+    public function checkoutBasketAPI()
+    {
+        $_SESSION['order'] = $this->input->post('orders');
+        $_SESSION['uid'] = $this->input->post('uid');
+
+        if (isset($_SESSION['uid'])) {
+
+            $return = $this->CheckoutModel->addNewOrderModel();
+
+            if ($return === 0) {
+                echo json_encode('Please wait while your active order completed before adding a new one.');
+            } else if ($return > 0) {
+                echo json_encode('Order has been place! Please await while we preparing your order.');
+            } else {
+                echo json_encode('Error creating your order, please try again.');
+            }
+            exit;
+        } else {
+            echo json_encode('Please login to place an order!');
+            exit;
+        }
+    }
 }

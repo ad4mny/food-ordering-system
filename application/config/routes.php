@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 $route['default_controller'] = 'IndexController/index';
 $route['404_override'] = '';
@@ -26,3 +26,13 @@ $route['vendor/catalogs/add'] = 'VendorController/setNewMenu';
 $route['vendor/catalogs/update/(:any)'] = 'VendorController/index/update/$1';
 $route['vendor/catalogs/update'] = 'VendorController/setCatalogUpdate';
 $route['vendor/catalogs/delete/(:any)'] = 'VendorController/setCatalogDelete/$1';
+
+// API Module 
+$route['api/get_catalog'] = 'CatalogController/getAllMenuAPI';
+$route['api/get_login'] = 'LoginController/loginAuthAPI';
+$route['api/get_signup'] = 'LoginController/createUserAccountAPI';
+$route['api/get_profile'] = 'ProfileController/getProfileAPI';
+$route['api/get_order_history'] = 'ProfileController/getOrderHistoryAPI';
+$route['api/get_order'] = 'CheckoutController/getAllActiveOrdersAPI';
+$route['api/get_order_basket'] = 'CheckoutController/getAllBasketItemDetailsAPI';
+$route['api/set_checkout_order'] = 'CheckoutController/checkoutBasketAPI';

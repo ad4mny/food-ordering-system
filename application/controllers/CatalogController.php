@@ -32,4 +32,12 @@ class CatalogController extends CI_Controller
         }
         redirect(base_url() . 'catalog');
     }
+
+    // API Module
+    public function getAllMenuAPI()
+    {
+        echo json_encode($this->CatalogModel->getAllMenuModel());
+        exit;
+    }
+
 }

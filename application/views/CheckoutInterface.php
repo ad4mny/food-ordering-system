@@ -1,8 +1,7 @@
 <div class="container my-5">
     <?php
     $total_price = 0;
-    if (isset($baskets) && is_array($baskets) && $baskets !== false) {
-    ?>
+    if (isset($baskets) && is_array($baskets) && !empty($baskets) && $baskets !== false) {  ?>
         <div class="row border-md-bottom pb-2 text-center text-md-start">
             <div class="col-12 col-md-9">
                 <h1 class="fw-light"><i class="fas fa-shopping-basket fa-fw"></i> Checkout Order</h1>
@@ -88,7 +87,7 @@
                 </a>
             </div>
         </div>
-    <?php } else if (isset($orders) && is_array($orders) && $orders !== false) {  ?>
+    <?php } else if (isset($orders) && is_array($orders) && !empty($orders)  && $orders !== false) {  ?>
         <div class="row border-md-bottom pb-2 text-center text-md-start">
             <div class="col-12 col-md-9">
                 <h1 class="fw-light"><i class="fas fa-tasks fa-fw"></i> Order Status</h1>

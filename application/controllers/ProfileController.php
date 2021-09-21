@@ -50,4 +50,12 @@ class ProfileController extends CI_Controller
             redirect(base_url() . 'profile');
         }
     }
+
+    // API Module 
+    public function getOrderHistoryAPI()
+    {
+        $_SESSION['uid'] = $this->input->post('uid');
+        echo json_encode($this->ProfileModel->getOrderHistoryModel());
+        exit;
+    }
 }
