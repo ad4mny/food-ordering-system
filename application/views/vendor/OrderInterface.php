@@ -32,12 +32,14 @@
                     <?php echo $row['od_status']; ?>
                 </div>
                 <div class="col">
-                    <a href="<?php echo base_url() . 'vendor/orders/ready/' . $row['od_id']; ?>" class="btn btn-success btn-sm">
-                        <i class="fas fa-check fa-fw fa-sm"></i>
-                    </a>
-                    <a href="<?php echo base_url() . 'vendor/orders/delete/' . $row['od_id']; ?>" class="btn btn-danger btn-sm">
-                        <i class="fas fa-times fa-fw fa-sm"></i>
-                    </a>
+                    <?php if ($row['od_status'] !== 'Completed') { ?>
+                        <a href="<?php echo base_url() . 'vendor/orders/ready/' . $row['od_id']; ?>" class="btn btn-success btn-sm">
+                            <i class="fas fa-check fa-fw fa-sm"></i>
+                        </a>
+                        <a href="<?php echo base_url() . 'vendor/orders/delete/' . $row['od_id']; ?>" class="btn btn-danger btn-sm">
+                            <i class="fas fa-times fa-fw fa-sm"></i>
+                        </a>
+                    <?php } ?>
                 </div>
             </div>
         <?php }

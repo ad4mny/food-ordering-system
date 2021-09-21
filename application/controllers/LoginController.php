@@ -1,4 +1,6 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+
 class LoginController extends CI_Controller
 {
     public function __construct()

@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 
 class CheckoutController extends CI_Controller
 {
@@ -137,4 +138,12 @@ class CheckoutController extends CI_Controller
             exit;
         }
     }
+
+    public function setPayAPI()
+    {
+        echo $this->CheckoutModel->setPayModel($this->input->post('order_id'));
+        exit;
+    }
+
+    
 }

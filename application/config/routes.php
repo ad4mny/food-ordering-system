@@ -36,3 +36,4 @@ $route['api/get_order_history'] = 'ProfileController/getOrderHistoryAPI';
 $route['api/get_order'] = 'CheckoutController/getAllActiveOrdersAPI';
 $route['api/get_order_basket'] = 'CheckoutController/getAllBasketItemDetailsAPI';
 $route['api/set_checkout_order'] = 'CheckoutController/checkoutBasketAPI';
+$route['api/set_pay'] = 'CheckoutController/setPayAPI';

@@ -25,7 +25,7 @@ class CheckoutModel extends CI_Model
         $this->db->join('catalog_data', 'cd_id = od_cd_id');
         $this->db->join('user_data', 'ud_id = cd_ud_id');
         $this->db->where('od_ud_id', $_SESSION['uid']);
-        $this->db->where('od_status', 'Preparing');
+        $this->db->where('od_status !=', 'Paid');
 
         return $this->db->get()->result_array();
     }
@@ -59,4 +59,17 @@ class CheckoutModel extends CI_Model
             return $this->db->insert_batch('order_data', $data);
         }
     }
+
+    public function setPayModel($order_id)
+    {
+        $data = array(
+            'od_status' => 'Paid',
+            'od_log' => date('H:i:s Y-m-d')
+        );
+
+        $this->db->where('od_id', $order_id);
+        return $this->db->update('order_data', $data);
+    }
+
+
 }
