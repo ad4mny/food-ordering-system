@@ -16,7 +16,7 @@ class ProfileModel extends CI_Model
         $this->db->from('order_data');
         $this->db->join('catalog_data', 'cd_id = od_cd_id');
         $this->db->where('od_ud_id', $_SESSION['uid']);
-        $this->db->where('od_status', 'Completed');
+        $this->db->where('od_status', 'Paid');
         return $this->db->get()->result_array();
     }
     
