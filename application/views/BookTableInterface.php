@@ -19,7 +19,7 @@
                                 </a>
                             </div>
                         <?php
-                        } else if ($table['td_ud_id'] === $_SESSION['uid']) {
+                        } else if (isset($_SESSION['uid']) && $table['td_ud_id'] === $_SESSION['uid']) {
                         ?>
                             <div class="col d-grid">
                                 <a href="<?php echo base_url() . 'table/remove/' . $table['td_id']; ?>" class="btn btn-success bg-warning card p-3 m-2 text-dark">
