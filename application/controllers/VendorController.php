@@ -10,28 +10,33 @@ class VendorController extends CI_Controller
         $this->load->library('upload');
     }
 
-    public function index($page = 'orders', $catalog_id = null)
+    public function index($page = 'dashboard', $catalog_id = null)
     {
         $this->load->view('templates/vendor/headers.php');
         $this->load->view('templates/vendor/navigations.php');
 
         if ($page === 'update') {
-
             $data['updates'] = $this->getCatalogByID($catalog_id);
             $this->load->view('vendor/UpdateCatalogInterface.php', $data);
         } else  if ($page === 'catalogs') {
-
             $data['catalogs'] = $this->getAllCatalog();
             $this->load->view('vendor/CatalogInterface.php', $data);
-        } else {
-
+        } else if ($page === 'orders') {
             $data['orders'] = $this->getAllActiveOrder();
             $this->load->view('vendor/OrderInterface.php', $data);
+        } else {
+            $data['dashboards'] = $this->getDashboardAnalytic();
+            $this->load->view('vendor/DashboardInterface.php', $data);
         }
 
         $this->load->view('templates/vendor/footers.php');
     }
 
+    public function getDashboardAnalytic()
+    {
+        return $this->VendorModel->getDashboardAnalyticModel();
+    }
+    
     public function getAllActiveOrder()
     {
         return $this->VendorModel->getAllActiveOrderModel();
@@ -80,7 +85,6 @@ class VendorController extends CI_Controller
         }
     }
 
-
     public function setCatalogUpdate()
     {
         $id = $this->input->post('id');
@@ -127,7 +131,6 @@ class VendorController extends CI_Controller
             }
         }
     }
-
 
     public function setCatalogDelete($catalog_id)
     {

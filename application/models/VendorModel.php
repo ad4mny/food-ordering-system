@@ -2,6 +2,53 @@
 
 class VendorModel extends CI_Model
 {
+    public function getDashboardAnalyticModel()
+    {
+        $data = [];
+
+        $this->db->select('COUNT(*) as value');
+        $this->db->from('order_data');
+        $this->db->join('payment_data', 'pd_od_id = od_id');
+        $this->db->join('catalog_data', 'cd_id = od_cd_id');
+        $this->db->where('catalog_data.cd_ud_id', $_SESSION['uid']);
+        $this->db->where('pd_status', 'Paid');
+        $data['paid'] = $this->db->get()->row_array();
+
+        $this->db->select('COUNT(*) as value');
+        $this->db->from('order_data');
+        $this->db->join('catalog_data', 'cd_id = od_cd_id');
+        $this->db->where('catalog_data.cd_ud_id', $_SESSION['uid']);
+        $this->db->where('od_status', 'Completed');
+        $data['complete'] = $this->db->get()->row_array();
+
+        $this->db->select('COUNT(*) as value');
+        $this->db->from('order_data');
+        $this->db->join('catalog_data', 'cd_id = od_cd_id');
+        $this->db->where('catalog_data.cd_ud_id', $_SESSION['uid']);
+        $this->db->where('od_status', 'Preparing');
+        $data['pending'] = $this->db->get()->row_array();
+
+        $this->db->select('COUNT(*) as value');
+        $this->db->from('order_data');
+        $this->db->join('catalog_data', 'cd_id = od_cd_id');
+        $this->db->where('catalog_data.cd_ud_id', $_SESSION['uid']);
+        $data['total'] = $this->db->get()->row_array();
+
+        $this->db->select('SUM(pd_amount) as value');
+        $this->db->from('payment_data');
+        $this->db->join('order_data', 'od_id = pd_od_id');
+        $this->db->join('catalog_data', 'cd_id = od_cd_id');
+        $this->db->where('catalog_data.cd_ud_id', $_SESSION['uid']);
+        $data['invoice'] = $this->db->get()->row_array();
+
+        $this->db->select('COUNT(*) as value');
+        $this->db->from('catalog_data');
+        $this->db->where('cd_ud_id', $_SESSION['uid']);
+        $data['menu'] = $this->db->get()->row_array();
+
+        return $data;
+    }
+
     public function getAllActiveOrderModel()
     {
         $this->db->select('*');

@@ -23,12 +23,13 @@
         <div class="col-4">
             <div class="row pb-2">
                 <div class="col">
-                    <h3 class="text-capitalize fw-light">Welcome, <?php echo $_SESSION['user'];?>.</h3>
+                    <h3 class="text-capitalize fw-light">Welcome, <?php echo $_SESSION['user']; ?>.</h3>
                 </div>
             </div>
             <div class="row pb-2">
                 <div class="col">
                     <div class="list-group bg-white shadow">
+                        <a href="<?php echo base_url(); ?>vendor/dashboard" class="list-group-item list-group-item-action <?php if ($this->uri->segment(2) == 'dashboard') echo 'active'; ?>">Dashboard</a>
                         <a href="<?php echo base_url(); ?>vendor/orders" class="list-group-item list-group-item-action <?php if ($this->uri->segment(2) == 'orders') echo 'active'; ?>">Active Orders</a>
                         <a href="<?php echo base_url(); ?>vendor/catalogs" class="list-group-item list-group-item-action <?php if ($this->uri->segment(2) == 'catalogs') echo 'active'; ?>">Your Catalogs</a>
                         <a href="<?php echo base_url(); ?>logout" class="list-group-item list-group-item-action text-danger">Logout</a>
