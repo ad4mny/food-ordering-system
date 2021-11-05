@@ -39,4 +39,20 @@ class BookTableController extends CI_Controller
             }
         }
     }
+
+    public function removeTableBooking($table_id)
+    {
+        if (!isset($_SESSION['uid'])) {
+            $this->session->set_tempdata('error', 'Failed to remove your booked tables, please login first.', 1);
+            redirect(base_url() . 'table');
+        } else {
+            if ($this->BookTableModel->removeTableBookingModel($table_id) === true) {
+                $this->session->set_tempdata('notice', 'Your table has been removed successfully.', 1);
+                redirect(base_url() . 'table');
+            } else {
+                $this->session->set_tempdata('error', 'Failed to remove your booked tables.', 1);
+                redirect(base_url() . 'table');
+            }
+        }
+    }
 }

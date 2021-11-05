@@ -18,6 +18,7 @@ $route['profile/(:any)'] = 'ProfileController/index/$1';
 $route['profile/update/submit'] = 'ProfileController/setProfileUpdate';
 $route['table'] = 'BookTableController/index';
 $route['table/book/(:num)'] = 'BookTableController/setTableBooking/$1';
+$route['table/remove/(:num)'] = 'BookTableController/removeTableBooking/$1';
 
 $route['vendor/(:any)'] = 'VendorController/index/$1';
 $route['vendor/orders/ready/(:any)'] = 'VendorController/setOrderReady/$1';
