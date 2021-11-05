@@ -14,9 +14,17 @@
                 ?>
                             <div class="col">
                                 <a href="<?php echo base_url() . 'table/book/' . $table['td_id']; ?>" class="btn btn-outline-success card p-3 m-2">
-                                    <h4> <?php echo $table['td_name']; ?> </h4>
-                                    <h6> <?php echo $table['td_time'] . ':00 pm'; ?></h6>
+                                    <h4> Table <?php echo $table['td_name']; ?> </h4>
                                     <h6> Available </h6>
+                                </a>
+                            </div>
+                        <?php
+                        } else if ($table['td_ud_id'] === $_SESSION['uid']) {
+                        ?>
+                            <div class="col d-grid">
+                                <a href="<?php echo base_url() . 'table/remove/' . $table['td_id']; ?>" class="btn btn-success bg-warning card p-3 m-2 text-dark">
+                                    <h4> Table <?php echo $table['td_name']; ?> </h4>
+                                    <h6> Your table </h6>
                                 </a>
                             </div>
                         <?php
@@ -24,8 +32,7 @@
                         ?>
                             <div class="col d-grid">
                                 <button href="<?php echo base_url() . 'table/book/' . $table['td_id']; ?>" class="btn btn-danger bg-danger card p-3 m-2" disbled>
-                                    <h4> <?php echo $table['td_name']; ?> </h4>
-                                    <h6> <?php echo $table['td_time'] . ':00 pm'; ?></h6>
+                                    <h4> Table <?php echo $table['td_name']; ?> </h4>
                                     <h6> Unavailable </h6>
                                 </button>
                             </div>
