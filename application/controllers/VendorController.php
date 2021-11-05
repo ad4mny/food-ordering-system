@@ -8,6 +8,10 @@ class VendorController extends CI_Controller
         parent::__construct();
         $this->load->model('VendorModel');
         $this->load->library('upload');
+        
+        if (!isset($_SESSION['uid'])) {
+            redirect(base_url());
+        }
     }
 
     public function index($page = 'dashboard', $catalog_id = null)
@@ -36,7 +40,7 @@ class VendorController extends CI_Controller
     {
         return $this->VendorModel->getDashboardAnalyticModel();
     }
-    
+
     public function getAllActiveOrder()
     {
         return $this->VendorModel->getAllActiveOrderModel();
