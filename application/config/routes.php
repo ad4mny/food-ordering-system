@@ -31,6 +31,8 @@ $route['vendor/catalogs/delete/(:any)'] = 'VendorController/setCatalogDelete/$1'
 $route['admin/(:any)'] = 'AdminController/index/$1';
 $route['admin/vendor/approve/(:num)'] = 'AdminController/setVendorApprove/$1';
 $route['admin/vendor/delete/(:num)'] = 'AdminController/setVendorDelete/$1';
+$route['admin/table/add/submit'] = 'AdminController/setTableAdd';
+$route['admin/table/delete/(:num)'] = 'AdminController/setTableDelete/$1';
 
 // API Module 
 $route['api/get_catalog'] = 'CatalogController/getAllMenuAPI';

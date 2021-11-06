@@ -30,9 +30,9 @@
                 <div class="col">
                     <div class="list-group bg-white shadow">
                         <a href="<?php echo base_url(); ?>admin/dashboard" class="list-group-item list-group-item-action <?php if ($this->uri->segment(2) == 'dashboard') echo 'active'; ?>">Dashboard</a>
-                        <a href="<?php echo base_url(); ?>admin/vendor" class="list-group-item list-group-item-action <?php if ($this->uri->segment(2) == 'orders') echo 'active'; ?>">Approve Vendor</a>
-                        <a href="<?php echo base_url(); ?>admin/catalog" class="list-group-item list-group-item-action <?php if ($this->uri->segment(2) == 'catalogs') echo 'active'; ?>">View Cafe's Catalog</a>
-                        <a href="<?php echo base_url(); ?>admin/table" class="list-group-item list-group-item-action <?php if ($this->uri->segment(2) == 'catalogs') echo 'active'; ?>">Add Cafe's Table</a>
+                        <a href="<?php echo base_url(); ?>admin/vendor" class="list-group-item list-group-item-action <?php if ($this->uri->segment(2) == 'vendor') echo 'active'; ?>">Approve Vendor</a>
+                        <a href="<?php echo base_url(); ?>admin/catalog" class="list-group-item list-group-item-action <?php if ($this->uri->segment(2) == 'catalog') echo 'active'; ?>">View Cafe's Catalog</a>
+                        <a href="<?php echo base_url(); ?>admin/table" class="list-group-item list-group-item-action <?php if ($this->uri->segment(2) == 'table') echo 'active'; ?>">Add Cafe's Table</a>
                         <a href="<?php echo base_url(); ?>logout" class="list-group-item list-group-item-action text-danger">Logout</a>
                     </div>
                 </div>

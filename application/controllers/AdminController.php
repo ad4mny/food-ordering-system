@@ -19,7 +19,7 @@ class AdminController extends CI_Controller
 
         if ($page === 'catalog') {
             $data['catalogs'] = $this->getAllCatalog();
-            $this->load->view('admin/ViewAllCatalogInterface.php', $data);
+            $this->load->view('admin/ViewCatalogInterface.php', $data);
         } else  if ($page === 'vendor') {
             $data['vendors'] = $this->getAllVendor();
             $this->load->view('admin/ApproveVendorInterface.php', $data);
@@ -76,14 +76,26 @@ class AdminController extends CI_Controller
         }
     }
 
-    public function setCatalogDelete($catalog_id)
+    public function setTableAdd()
     {
-        if ($this->AdminModel->setCatalogDeleteModel($catalog_id) !== false) {
-            $this->session->set_tempdata('notice', 'Your catalog has been deleted succesfully.', 1);
-            redirect(base_url() . 'vendor/catalogs');
+       $table_name = $this->input->post('name');
+        if ($this->AdminModel->setTableAddModel($table_name) !== false) {
+            $this->session->set_tempdata('notice', 'Table has been added succesfully.', 1);
+            redirect(base_url() . 'admin/table');
         } else {
-            $this->session->set_tempdata('error', 'Failed to delete your catalog.', 1);
-            redirect(base_url() . 'vendor/catalogs');
+            $this->session->set_tempdata('error', 'Failed to add the table.', 1);
+            redirect(base_url() . 'admin/table');
+        }
+    }
+
+    public function setTableDelete($table_id)
+    {
+        if ($this->AdminModel->setTableDeleteModel($table_id) !== false) {
+            $this->session->set_tempdata('notice', 'Table has been deleted succesfully.', 1);
+            redirect(base_url() . 'admin/table');
+        } else {
+            $this->session->set_tempdata('error', 'Failed to delete table.', 1);
+            redirect(base_url() . 'admin/table');
         }
     }
 }

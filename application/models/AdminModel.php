@@ -46,6 +46,7 @@ class AdminModel extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('catalog_data');
+        $this->db->join('user_data', 'ud_id = cd_ud_id');
         return $this->db->get()->result_array();
     }
 
@@ -81,8 +82,19 @@ class AdminModel extends CI_Model
         return $this->db->delete('user_data');
     }
 
-    public function setCatalogDeleteModel($catalog_id)
+    public function setTableAddModel($table_name)
     {
-        return 0;
+        $data = array(
+            'td_name' => $table_name,
+            'td_log' => date('H:i:s Y-m-d')
+        );
+
+        return $this->db->insert('table_data', $data);
+    }
+
+    public function setTableDeleteModel($table_id)
+    {
+        $this->db->where('td_id', $table_id);
+        return $this->db->delete('table_data');
     }
 }
