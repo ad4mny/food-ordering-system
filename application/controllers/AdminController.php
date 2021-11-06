@@ -20,8 +20,8 @@ class AdminController extends CI_Controller
         if ($page === 'catalog') {
             $data['catalogs'] = $this->getAllCatalog();
             $this->load->view('admin/ViewAllCatalogInterface.php', $data);
-        } else  if ($page === 'approve') {
-            $data['approves'] = $this->getAllVendor();
+        } else  if ($page === 'vendor') {
+            $data['vendors'] = $this->getAllVendor();
             $this->load->view('admin/ApproveVendorInterface.php', $data);
         } else if ($page === 'table') {
             $data['tables'] = $this->getAllTable();
@@ -36,27 +36,49 @@ class AdminController extends CI_Controller
 
     public function getDashboardAnalytic()
     {
-        return $this->VendorModel->getDashboardAnalyticModel();
+        return $this->AdminModel->getDashboardAnalyticModel();
     }
 
     public function getAllCatalog()
     {
-        return $this->VendorModel->getAllCatalogModel();
+        return $this->AdminModel->getAllCatalogModel();
     }
 
     public function getAllVendor()
     {
-        return $this->VendorModel->getAllVendorModel();
+        return $this->AdminModel->getAllVendorModel();
     }    
     
     public function getAllTable()
     {
-        return $this->VendorModel->getAllTableModel();
+        return $this->AdminModel->getAllTableModel();
+    }
+
+    public function setVendorApprove($vendor_id)
+    {
+        if ($this->AdminModel->setVendorApproveModel($vendor_id) !== false) {
+            $this->session->set_tempdata('notice', 'Vendor has been approved succesfully.', 1);
+            redirect(base_url() . 'admin/approve');
+        } else {
+            $this->session->set_tempdata('error', 'Failed to approve the vendor.', 1);
+            redirect(base_url() . 'admin/approve');
+        }
+    }
+
+    public function setVendorDelete($vendor_id)
+    {
+        if ($this->AdminModel->setVendorDeleteModel($vendor_id) !== false) {
+            $this->session->set_tempdata('notice', 'Vendor has been remove succesfully.', 1);
+            redirect(base_url() . 'admin/approve');
+        } else {
+            $this->session->set_tempdata('error', 'Failed to remove the vendor.', 1);
+            redirect(base_url() . 'admin/approve');
+        }
     }
 
     public function setCatalogDelete($catalog_id)
     {
-        if ($this->VendorModel->setCatalogDeleteModel($catalog_id) !== false) {
+        if ($this->AdminModel->setCatalogDeleteModel($catalog_id) !== false) {
             $this->session->set_tempdata('notice', 'Your catalog has been deleted succesfully.', 1);
             redirect(base_url() . 'vendor/catalogs');
         } else {
