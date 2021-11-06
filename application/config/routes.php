@@ -28,6 +28,10 @@ $route['vendor/catalogs/update/(:any)'] = 'VendorController/index/update/$1';
 $route['vendor/catalogs/update'] = 'VendorController/setCatalogUpdate';
 $route['vendor/catalogs/delete/(:any)'] = 'VendorController/setCatalogDelete/$1';
 
+$route['admin/(:any)'] = 'AdminController/index/$1';
+$route['admin/vendor/approve/(:num)'] = 'AdminController/setVendorApprove/$1';
+$route['admin/vendor/delete/(:num)'] = 'AdminController/setVendorDelete/$1';
+
 // API Module 
 $route['api/get_catalog'] = 'CatalogController/getAllMenuAPI';
 $route['api/get_login'] = 'LoginController/loginAuthAPI';
