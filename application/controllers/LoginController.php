@@ -17,7 +17,7 @@ class LoginController extends CI_Controller
         $return = $this->LoginModel->loginAuthModel($username, $password);
 
         if ($return !== false) {
-            if ($return['ud_status'] !== 1) {
+            if ($return['ud_status'] != 1) {
                 $this->session->set_tempdata('notice', 'Your vendor account is in pending approval, please wait a while we validate your vendor registration information.', 1);
                 redirect(base_url());
             } else {
@@ -69,7 +69,7 @@ class LoginController extends CI_Controller
             $return = $this->LoginModel->createUserAccountModel($username, $password, $name, $contact, $role);
 
             if ($return !== false) {
-                if ($return['ud_status'] !== 1) {
+                if ($return['ud_status'] != 1) {
                     $this->session->set_tempdata('notice', 'Your vendor account is in pending approval, please wait a while we validate your vendor registration information.', 1);
                     redirect(base_url());
                 } else {
