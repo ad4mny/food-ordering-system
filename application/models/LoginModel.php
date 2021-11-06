@@ -36,12 +36,20 @@ class LoginModel extends CI_Model
 
     public function createUserAccountModel($username, $password, $name, $contact, $role)
     {
+
+        if ($role == '1') {
+            $status = 0;
+        } else {
+            $status = 1;
+        }
+
         $data = array(
             'ud_full_name' =>  $name,
             'ud_username' =>  $username,
             'ud_password' => $password,
             'ud_contact' => $contact,
             'ud_role' => $role,
+            'ud_status' => $status,
             'ud_log' => date('H:i:s Y-m-d')
         );
 

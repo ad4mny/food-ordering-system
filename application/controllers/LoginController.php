@@ -17,22 +17,27 @@ class LoginController extends CI_Controller
         $return = $this->LoginModel->loginAuthModel($username, $password);
 
         if ($return !== false) {
+            if ($return['ud_status'] !== 1) {
+                $this->session->set_tempdata('notice', 'Your vendor account is in pending approval, please wait a while we validate your vendor registration information.', 1);
+                redirect(base_url());
+            } else {
 
-            $this->session->set_userdata('uid', $return['ud_id']);
-            $this->session->set_userdata('user', $return['ud_username']);
-            $this->session->set_userdata('name', $return['ud_full_name']);
-            $this->session->set_userdata('role', $return['ud_role']);
+                $this->session->set_userdata('uid', $return['ud_id']);
+                $this->session->set_userdata('user', $return['ud_username']);
+                $this->session->set_userdata('name', $return['ud_full_name']);
+                $this->session->set_userdata('role', $return['ud_role']);
 
-            switch ($this->session->userdata('role')) {
-                case 2:
-                    redirect(base_url() . 'admin/dashboard');
-                    break;
-                case 1:
-                    redirect(base_url() . 'vendor/orders');
-                    break;
-                default:
-                    redirect(base_url());
-                    break;
+                switch ($this->session->userdata('role')) {
+                    case 2:
+                        redirect(base_url() . 'admin/dashboard');
+                        break;
+                    case 1:
+                        redirect(base_url() . 'vendor/orders');
+                        break;
+                    default:
+                        redirect(base_url());
+                        break;
+                }
             }
         } else {
             $this->session->set_tempdata('error', 'Wrong username or password entered.', 1);
@@ -64,22 +69,26 @@ class LoginController extends CI_Controller
             $return = $this->LoginModel->createUserAccountModel($username, $password, $name, $contact, $role);
 
             if ($return !== false) {
+                if ($return['ud_status'] !== 1) {
+                    $this->session->set_tempdata('notice', 'Your vendor account is in pending approval, please wait a while we validate your vendor registration information.', 1);
+                    redirect(base_url());
+                } else {
+                    $this->session->set_userdata('uid', $return['ud_id']);
+                    $this->session->set_userdata('user', $return['ud_username']);
+                    $this->session->set_userdata('name', $return['ud_full_name']);
+                    $this->session->set_userdata('role', $return['ud_role']);
 
-                $this->session->set_userdata('uid', $return['ud_id']);
-                $this->session->set_userdata('user', $return['ud_username']);
-                $this->session->set_userdata('name', $return['ud_full_name']);
-                $this->session->set_userdata('role', $return['ud_role']);
-
-                switch ($this->session->userdata('role')) {
-                    case 2:
-                        redirect(base_url() . 'admin/dashboard');
-                        break;
-                    case 1:
-                        redirect(base_url() . 'vendor/dashboard');
-                        break;
-                    default:
-                        redirect(base_url());
-                        break;
+                    switch ($this->session->userdata('role')) {
+                        case 2:
+                            redirect(base_url() . 'admin/dashboard');
+                            break;
+                        case 1:
+                            redirect(base_url() . 'vendor/dashboard');
+                            break;
+                        default:
+                            redirect(base_url());
+                            break;
+                    }
                 }
             } else {
                 $this->session->set_tempdata('error', 'Wrong username or password entered.', 1);
@@ -137,7 +146,6 @@ class LoginController extends CI_Controller
 
             echo json_encode('Username unavailable, register again.');
             exit;
-
         } else {
 
             $return = $this->LoginModel->createUserAccountModel($username, md5($password), $name, $contact, $role);
