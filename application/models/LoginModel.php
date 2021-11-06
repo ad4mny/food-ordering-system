@@ -14,7 +14,7 @@ class LoginModel extends CI_Model
             $result = $query->row_array();
 
             $data = array(
-                'ud_log' => date('Y-m-d H:i:s')
+                'ud_log' => date('H:i:s Y-m-d ')
             );
 
             $this->db->where('ud_id', $result['ud_id']);
