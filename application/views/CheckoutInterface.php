@@ -16,10 +16,10 @@
         <?php foreach ($baskets as $row) { ?>
             <div class="row mx-2 py-2 mb-2 border-bottom bg-white rounded-3 shadow-sm text-dark">
                 <div class="col-8 col-md-6 d-flex align-items-center">
-                    <div class="">
+                    <div class="w-25">
                         <?php
                         if ($row['cd_img'] !== null) {
-                            echo '<img src="' . base_url() . 'assets/' . $row['cd_img'] . '" alt="No Image" class="img-fluid d-none d-md-block"/>';
+                            echo '<img src="' . base_url() . 'assets/catalog/' . $row['cd_img'] . '" alt="No Image" class="img-fluid d-none d-md-block"/>';
                         } else {
                             echo '<img src="http://placehold.it/100x100" alt="No Image" class="img-fluid d-none d-md-block"/>';
                         }
@@ -102,7 +102,7 @@
         <?php foreach ($orders as $row) { ?>
             <div class="row mx-2 py-1 mb-2 border-bottom bg-white rounded-3 shadow-sm text-dark">
                 <div class="col-8 col-md-6 d-flex align-items-center">
-                    <div class="">
+                    <div class="w-25">
                         <?php
                         if ($row['cd_img'] !== null) {
                             echo '<img src="' . base_url() . 'assets/catalog/' . $row['cd_img'] . '" alt="No Image" class="img-fluid d-none d-md-block"/>';
