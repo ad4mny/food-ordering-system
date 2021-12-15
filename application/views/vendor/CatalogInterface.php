@@ -9,7 +9,8 @@
     </div>
     <div class="row py-1 d-flex align-items-center justify-content-center text-center">
         <div class="col-1"><small>NO</small></div>
-        <div class="col-7 text-start"><small>CATALOG INFORMATION</small></div>
+        <div class="col-2"><small>CATALOG ID</small></div>
+        <div class="col-5 text-start"><small>CATALOG INFORMATION</small></div>
         <div class="col-2"><small>PRICE</small></div>
         <div class="col-2"><small>ACTION</small></div>
     </div>
@@ -21,6 +22,9 @@
                     <p class="mb-0 text-capitalize"><?php echo ++$i; ?></p>
                 </div>
                 <div class="col-2">
+                    <p class="mb-0 text-capitalize"><?php echo $row['cd_id']; ?></p>
+                </div>
+                <div class="col-2">
                     <?php
                     if ($row['cd_img'] !== null) {
                         echo '<img src="' . base_url() . 'assets/catalog/' . $row['cd_img'] . '" alt="No Image" class="img-fluid" />';
@@ -29,8 +33,7 @@
                     }
                     ?>
                 </div>
-                <div class="col-5 text-start">
-
+                <div class="col-3 text-start">
                     <p class="mb-0"><?php echo $row['cd_name']; ?></p>
                     <p class="mb-0"><?php echo $row['cd_desc']; ?></p>
                 </div>
