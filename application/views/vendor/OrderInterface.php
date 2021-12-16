@@ -6,9 +6,10 @@
     </div>
     <div class="row py-1 d-flex align-items-center justify-content-center text-center">
         <div class="col-1"><small>NO</small></div>
-        <div class="col-4 text-start"><small>ORDER INFORMATION</small></div>
+        <div class="col text-start"><small>ORDER INFORMATION</small></div>
         <div class="col"><small>PRICE</small></div>
         <div class="col"><small>QUANTITY</small></div>
+        <div class="col"><small>DATETIME</small></div>
         <div class="col"><small>STATUS</small></div>
         <div class="col"><small>ACTION</small></div>
     </div>
@@ -19,7 +20,7 @@
                 <div class="col-1">
                     <p class="mb-0 text-capitalize"><?php echo ++$i; ?></p>
                 </div>
-                <div class="col-4 text-start">
+                <div class="col text-start">
                     <p class="mb-0 text-capitalize"><?php echo $row['cd_name']; ?></p>
                 </div>
                 <div class="col">
@@ -27,6 +28,9 @@
                 </div>
                 <div class="col">
                     <?php echo $row['od_quantity']; ?>x
+                </div>
+                <div class="col">
+                    <?php echo $row['od_log']; ?>
                 </div>
                 <div class="col">
                     <?php echo $row['od_status']; ?>
