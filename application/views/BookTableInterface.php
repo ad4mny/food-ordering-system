@@ -31,7 +31,7 @@
                         } else {
                         ?>
                             <div class="col d-grid">
-                                <button href="<?php echo base_url() . 'table/book/' . $table['td_id']; ?>" class="btn btn-danger bg-danger card p-3 m-2" disbled>
+                                <button href="<?php echo base_url() . 'table/book/' . $table['td_id']; ?>" class="btn btn-danger bg-danger card p-3 m-2" disabled>
                                     <h4> Table <?php echo $table['td_name']; ?> </h4>
                                     <h6> Unavailable </h6>
                                 </button>

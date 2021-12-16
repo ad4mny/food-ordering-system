@@ -55,4 +55,27 @@ class BookTableController extends CI_Controller
             }
         }
     }
+
+    //API
+    public function getAllAvailableTableAPI()
+    {
+        echo json_encode($this->BookTableModel->getAllAvailableTableModel());
+        exit;
+    }
+
+    public function setTableBookingAPI()
+    {
+        $table_id = $this->input->post('table_id');
+        $_SESSION['uid'] = $this->input->post('uid');
+        echo json_encode($this->BookTableModel->setTableBookingModel($table_id));
+        exit;
+    }
+
+    public function removeTableBookingAPI()
+    {
+        $table_id = $this->input->post('table_id');
+        $_SESSION['uid'] = $this->input->post('uid');
+        echo json_encode($this->BookTableModel->removeTableBookingModel($table_id));
+        exit;
+    }
 }
