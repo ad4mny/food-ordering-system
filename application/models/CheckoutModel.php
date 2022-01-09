@@ -64,12 +64,25 @@ class CheckoutModel extends CI_Model
     {
         $data = array(
             'od_status' => 'Paid',
-            'od_log' => date('H:i:s Y-m-d')
+            'od_log' => date('Y-m-d H:i:s')
         );
 
         $this->db->where('od_id', $order_id);
-        return $this->db->update('order_data', $data);
+        $this->db->update('order_data', $data);
+
+        $this->db->select('*');
+        $this->db->from('order_data');
+        $this->db->join('catalog_data', 'od_cd_id = cd_id');
+        $this->db->where('od_id', $order_id);
+
+        $result = $this->db->get()->row_array();
+
+        $data = array(
+            'pd_od_id' => $order_id,
+            'pd_amount' => $result['od_quantity'] * $result['cd_price'],
+            'pd_log' => date('Y-m-d H:i:s')
+        );
+
+        return $this->db->insert('payment_data', $data);
     }
-
-
 }

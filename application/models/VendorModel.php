@@ -11,7 +11,7 @@ class VendorModel extends CI_Model
         $this->db->join('payment_data', 'pd_od_id = od_id');
         $this->db->join('catalog_data', 'cd_id = od_cd_id');
         $this->db->where('catalog_data.cd_ud_id', $_SESSION['uid']);
-        $this->db->where('pd_status', 'Paid');
+        $this->db->where('od_status', 'Paid');
         $data['paid'] = $this->db->get()->row_array();
 
         $this->db->select('COUNT(*) as value');
